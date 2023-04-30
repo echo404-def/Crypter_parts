@@ -5,6 +5,8 @@ Created on Thu Apr 29 00:51:45 2023
 @author: user
 """
 
+from random import randint
+
 class Sub:
     # Check whether the input argument is an integer and handle the exception if it is different.
     def set_multiple(self,m):
@@ -23,6 +25,20 @@ class Sub:
         b = a + (m - a % m)
         x = b - a
         return(x)
+    
+    # Generates an array of the specified length.
+    # The end contains the length of the generated data.
+    # By default, elements are created randomly, but it is also possible to create them with all zeros.
+    def generate_pad_array(self,length:int,**kwargs):
+        if "random" in kwargs.keys():
+            if kwargs["random"] == False:
+                res = [i*0 for i in range(length-1)]
+                res.append(length)
+        else:
+            res = [(i*0)+randint(0,255) for i in range(length-1)]
+            res.append(length)
+        return(res)
+
 
 # Main
 class Pad:
@@ -39,7 +55,5 @@ class Pad:
         m = Sub.set_multiple(kwargs["multiple"])
         
 if __name__ == "__main__":
-    data = list(range(61))
-    m = 10
-    print(Sub().set_pad_length(data, m))
+    print(Sub().generate_pad_array(10))
     
