@@ -69,10 +69,3 @@ class Pad:
         res = data[:data[-1]*-1]
         return(res)
         
-if __name__ == "__main__":
-    data = [1,2,3,4,5,0,0,3]
-    data = Pad().remove(data)
-    print(data)
-    
-    
-    
