@@ -1,11 +1,12 @@
 # -*- coding: utf-8 -*-
 """
-Created on Thu Apr 27 00:51:45 2023
+Created on Thu Apr 29 00:51:45 2023
 
 @author: user
 """
 
 class Sub:
+    # Check whether the input argument is an integer and handle the exception if it is different.
     def set_multiple(self,m):
         # multiple
         try:
@@ -16,13 +17,14 @@ class Sub:
             m = 10
         return(m)
         
+    # Decide the length of the bytes to add.
     def set_pad_length(self,data:list,m:int):
         a = len(data)
         b = a + (m - a % m)
         x = b - a
         return(x)
 
-
+# Main
 class Pad:
     def __init__(self):
         self.help = """
