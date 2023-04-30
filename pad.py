@@ -49,11 +49,30 @@ class Pad:
         """
     
     def add(self,data:list,**kwargs):
-        m = Sub.set_multiple(kwargs["multiple"])
+        f = Sub()
+        if "multiple" in kwargs.keys():
+            m = f.set_multiple(kwargs["multiple"])
+        else:
+            m = 10
+        length = f.set_pad_length(data, m)
+        pad = f.generate_pad_array(length)
+        res = data + pad
+        return(res)
         
     def remove(self,data:list,**kwargs):
-        m = Sub.set_multiple(kwargs["multiple"])
+        f = Sub()
+        if "multiple" in kwargs.keys():
+            m = f.set_multiple(kwargs["multiple"])
+        else:
+            m = 10
+        length = f.set_pad_length(data, m)
+        res = data[:data[-1]*-1]
+        return(res)
         
 if __name__ == "__main__":
-    print(Sub().generate_pad_array(10))
+    data = [1,2,3,4,5,0,0,3]
+    data = Pad().remove(data)
+    print(data)
+    
+    
     
