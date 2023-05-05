@@ -13,7 +13,7 @@ class Block:
             m = 10
         if len(data) % m != 0:
             print("\aERROR[Block]: Incorrect multiple value")
-            return()
+            return(None)
         res = list()
         for i in range(len(data)//m):
             i = data[:10]
@@ -21,8 +21,20 @@ class Block:
             res.append(i)
         return(res)
             
+    
+    def joining(self,data:list):
+        if type(data) != list():
+            print("\aERROR[Block]: Incorrect arguments.")
+            return(None)
+        res = list()
+        for i in data:
+            res += i
+        return(res)
+    
+    
 if __name__ == "__main__":
-    data = list(range(30))
+    data = list(range(31))
     r = Block().blocking(data)
     print(r)
-    
+    r2 = Block().joining(r)
+    print(r2)
