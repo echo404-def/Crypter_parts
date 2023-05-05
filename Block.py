@@ -30,11 +30,3 @@ class Block:
         for i in data:
             res += i
         return(res)
-    
-    
-if __name__ == "__main__":
-    data = list(range(31))
-    r = Block().blocking(data)
-    print(r)
-    r2 = Block().joining(r)
-    print(r2)
