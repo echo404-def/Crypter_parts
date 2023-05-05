@@ -2,7 +2,7 @@
 """
 Created on Thu Apr 29 00:51:45 2023
 
-@author: user
+@author: echo
 """
 
 from random import randint
